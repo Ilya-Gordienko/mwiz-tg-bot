@@ -2,12 +2,11 @@ import telebot
 import asyncio
 import aiohttp
 
-if __name__ == "__main__":
-    TOKEN = None
-    with open("token.txt") as f:
-        TOKEN = f.read().strip()
-    bot = telebot.TeleBot(TOKEN) 
-    bot.polling(none_stop=True, interval=0)
+
+TOKEN = None
+with open("token.txt") as f:
+    TOKEN = f.read().strip()
+bot = telebot.TeleBot(TOKEN) 
 
 
 async def check_ava(player_id):
@@ -84,6 +83,7 @@ async def check_image(player_id):
         responses = await asyncio.gather(*task_list)
 
     return responses
+
 
 
 @bot.message_handler(commands=['start'])
@@ -174,3 +174,5 @@ def func(message):
         except:
             bot.send_message(message.chat.id, "Произошла непредвиденная ошибка. Обратитесь к создателю бота.")
 
+
+bot.polling(none_stop=True, interval=0)
