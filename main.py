@@ -1,11 +1,7 @@
 import telebot
 import asyncio
 import aiohttp
-
-
-TOKEN = None
-with open("token.txt") as f:
-    TOKEN = f.read().strip()
+from settings import TOKEN
 
 bot = telebot.TeleBot(TOKEN)
 
