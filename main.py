@@ -1,10 +1,12 @@
 import telebot
 import asyncio
 import aiohttp
-import os
 
 
-bot = telebot.TeleBot(os.environ.get('TOKEN'))
+TOKEN = None
+with open("token.txt") as f:
+    TOKEN = f.read().strip()
+bot = telebot.TeleBot(TOKEN)  
 
 
 async def check_ava(player_id):
