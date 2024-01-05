@@ -6,7 +6,9 @@ import aiohttp
 TOKEN = None
 with open("token.txt") as f:
     TOKEN = f.read().strip()
-bot = telebot.TeleBot(TOKEN) 
+
+if __name__ == "__main__":
+    bot = telebot.TeleBot(TOKEN)
 
 
 async def check_ava(player_id):
@@ -88,7 +90,7 @@ async def check_image(player_id):
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id, text="Привет, {0.first_name}! Введи id игрока для получения его личных картинок".format(message.from_user))
+    bot.send_message(message.chat.id, text="_vs_Привет, {0.first_name}! Введи id игрока для получения его личных картинок".format(message.from_user))
 
 
 @bot.message_handler(content_types=['text'])
