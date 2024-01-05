@@ -1,4 +1,4 @@
 telebot
 asyncio
 aiohttp
-settings.py
+settings
