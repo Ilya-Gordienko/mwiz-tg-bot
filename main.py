@@ -2,11 +2,12 @@ import telebot
 import asyncio
 import aiohttp
 
-
-TOKEN = None
-with open("token.txt") as f:
-    TOKEN = f.read().strip()
-bot = telebot.TeleBot(TOKEN)  
+if __name__ == "__main__":
+    TOKEN = None
+    with open("token.txt") as f:
+        TOKEN = f.read().strip()
+    bot = telebot.TeleBot(TOKEN) 
+    bot.polling(none_stop=True, interval=0)
 
 
 async def check_ava(player_id):
@@ -173,5 +174,3 @@ def func(message):
         except:
             bot.send_message(message.chat.id, "Произошла непредвиденная ошибка. Обратитесь к создателю бота.")
 
-
-bot.polling(none_stop=True, interval=0)
