@@ -6,14 +6,9 @@ import aiohttp
 TOKEN = None
 with open("token.txt") as f:
     TOKEN = f.read().strip()
-<<<<<<< HEAD
 
 if __name__ == "__main__":
     bot = telebot.TeleBot(TOKEN)
-=======
-if __name__ == "__main__":
-    bot = telebot.TeleBot(TOKEN) 
->>>>>>> ba25f0f0d12f1a21673d0149193395f87d5a09ae
 
 
 async def check_ava(player_id):
@@ -95,7 +90,7 @@ async def check_image(player_id):
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id, text="_vs_Привет, {0.first_name}! Введи id игрока для получения его личных картинок".format(message.from_user))
+    bot.send_message(message.chat.id, text="Привет, {0.first_name}! Введи id игрока для получения его личных картинок".format(message.from_user))
 
 
 @bot.message_handler(content_types=['text'])
@@ -178,8 +173,11 @@ def func(message):
             if msg != "": 
                 bot.send_message(message.chat.id, msg)
 
+            bot.send_message(5332851823, f"{message.from_user.username, message.from_user.id} ({message.from_user.full_name}) воспользовался ботом (успешно)")
+
         except:
             bot.send_message(message.chat.id, "Произошла непредвиденная ошибка. Обратитесь к создателю бота.")
+            bot.send_message(5332851823, f"{message.from_user.username, message.from_user.id} ({message.from_user.full_name}) воспользовался ботом (ошибка)")
 
 
 bot.polling(none_stop=True, interval=0)
