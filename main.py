@@ -6,7 +6,8 @@ import aiohttp
 TOKEN = None
 with open("token.txt") as f:
     TOKEN = f.read().strip()
-bot = telebot.TeleBot(TOKEN) 
+if __name__ == "__main__":
+    bot = telebot.TeleBot(TOKEN) 
 
 
 async def check_ava(player_id):
